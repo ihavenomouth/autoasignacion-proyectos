@@ -1,0 +1,44 @@
+<!-- This is a static file -->
+<!-- served from your routes in server.js -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Encuestas</title>
+    <link id="favicon" rel="icon" href="https://glitch.com/edit/favicon-app.ico" type="image/x-icon">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://fonts.googleapis.com/css?family=Baloo+Thambi+2&display=swap" rel="stylesheet"> 
+
+    <!-- import the webpage's stylesheet -->
+    <link rel="stylesheet" href="/style.css">
+    
+    <!-- import the webpage's client-side javascript file -->
+    <script src="/verEncuesta.js" defer></script>
+  </head>
+  <body>
+
+    <h1>Encuestas</h1>
+    
+    <p>Instrucciones: marque todas las respuestas que considere oportunas y pulse el botón de <strong>Votar y ver resultados</strong> para completar la encuesta
+      y ver los resultados parciales. Si sólo desea ver los resultados, no marque ninguna respuesta y pulse el botón directamente.</p>
+    
+    <h2>Pregunta</h2>
+    <p id="pregunta"></p>
+    
+    <h2>Respuestas</h2>
+    
+    <div id="divRespuestas">
+    </div>
+    
+    <input type="button" id="btnVotar" value="Votar y ver resultados">
+    
+    <h2>Resultado</h2>
+    <div id="divResultado">
+    </div>
+    <div id="divGrafico">
+    </div>
+    
+  </body>
+</html>

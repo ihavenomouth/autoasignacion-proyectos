@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Autoasignación de proyectos</title>
+    <link id="favicon" rel="icon" href="https://glitch.com/edit/favicon-app.ico" type="image/x-icon">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdn.simplecss.org/simple.min.css">
+    
+    <link rel="stylesheet" href="/style.css">
+    <script defer src="/resultadosAdmin.js"></script>
+
+  </head>
+  <body>
+
+    <h1>Autoevaluación</h1>
+    
+    <p id="pNombre">Bienvenido, desconocido</p>
+    
+    <form id="frmCargarResultados">
+      <fieldset>
+        <legend>Seleccionar curso, encuesta y alumno</legend>        
+        <label for="txtCurso">Curso</label>
+        <select name="txtCurso" id="txtCurso"></select>
+        
+        <label for="txtEncuesta">Encuesta</label>
+        <select required name="txtEncuesta" id="txtEncuesta"></select>
+        
+        <label for="txtAlumnoExaminado">Alumno examinado</label>
+        <select required name="txtAlumnoExaminado" id="txtAlumnoExaminado"></select>
+        <button type="button" id="btnCargarResultados">Cargar resultados</button>
+      </fieldset>
+    </form>
+        
+    <h2>Resultados</h2>
+    <div id="divResultado"></div>    
+  </body>
+</html>
