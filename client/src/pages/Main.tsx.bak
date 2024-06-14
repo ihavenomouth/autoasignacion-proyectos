@@ -1,0 +1,49 @@
+import Menu from "../components/Comun/Menu";
+import { useRef, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
+import Header from "../components/Header";
+import FormVerProyectos from "../components/Main/FormVerProyectos";
+import { fetchProyectos } from "../components/Main/utils";
+import TablaProyectosAlumnos from "../components/Main/TablaProyectosAlumnos";
+
+
+const Main = () => {
+  const navigate = useNavigate();
+  const nombre = window.localStorage.getItem('nombre') ?? "";
+  const email = window.localStorage.getItem('email') ?? "";
+  const token = window.localStorage.getItem('token') ?? "";
+  
+  //Protegemos la ruta en el cliente, usamos useEffect para que el componente se cargue
+  //antes de redirigir.
+  useEffect( ()=>{
+    if(!token)
+      navigate("/");
+  },[token, navigate]);
+  
+  //La referencia a la lista de proyectos
+  const referencia = useRef<HTMLTableSectionElement>(null);
+
+  //Cargamos los proyectos
+  useEffect( ()=>{
+    fetchProyectos(referencia);
+  },[]);
+
+
+return (<>
+    <Header nombre={nombre} email={email} />
+    <Menu />  
+    <section className="max-w-4xl mx-auto p-4 bg-slate-50 dark:bg-slate-800 8">
+      <h2 className="text-xl">Ver proyectos</h2>
+      <FormVerProyectos 
+        funcionRecargar={fetchProyectos}
+        referencia={referencia}
+      />
+      <TablaProyectosAlumnos referencia={referencia}/>
+    </section>
+  </>);
+}
+export default Main;
+
+
+
+
