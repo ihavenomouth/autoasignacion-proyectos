@@ -9,7 +9,8 @@ const FormCrearCuenta = () => {
 
   const gestionarCrearUsuario = (ev: FormEvent<HTMLFormElement>) => {
     ev.preventDefault();
-    const form: HTMLFormElement = ev.target;
+    const form= ev.target as HTMLFormElement;
+    // const form: HTMLFormElement = ev.target;
 
     //desactivamos el botón
     // let submitter = ev.submitter;

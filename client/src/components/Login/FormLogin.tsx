@@ -9,7 +9,8 @@ const FormLogin = () => {
 
   const gestionarLogin = (ev: FormEvent<HTMLFormElement>) => {
     ev.preventDefault();
-    const form: HTMLFormElement = ev.target;
+    // const form: HTMLFormElement = ev.target;
+    const form = ev.target as HTMLFormElement;
 
     //desactivamos el botón
     // let submitter = ev.submitter;

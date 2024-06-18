@@ -6,6 +6,12 @@ import './index.css'
 
 import { BrowserRouter } from 'react-router-dom';
 
+declare global {
+  interface Window {
+    HSOverlay:any;
+  }
+}
+
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
 	<BrowserRouter basename="/">

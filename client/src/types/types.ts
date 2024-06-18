@@ -4,3 +4,4 @@ export type TypeProyecto = {
   descripcion:string;
   idalumno: number|null;
 }
+
