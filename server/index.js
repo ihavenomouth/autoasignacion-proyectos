@@ -45,6 +45,13 @@ dbPromise.then(() => {
 });
 
 // Redireccionamos al proyecto cliente si no es una ruta de la API
-app.get('/', (req, res) => {
-  res.redirect('http://localhost:8080');
-});
+// app.get('/', (req, res) => {
+//   res.redirect('http://localhost:8080');
+// });
+
+// Middleware para servir archivos estáticos del cliente
+app.use(express.static(path.join(__dirname, './clientdist')));
+
+//TODO: en lugar de usar nodemon, usar la opción node --watch index.js
+
+
