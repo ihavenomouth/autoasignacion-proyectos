@@ -20,8 +20,8 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 // CORS
-import cors from 'cors';
-app.use(cors());
+//import cors from 'cors';
+//app.use(cors());
 
 // Rutas de la API
 import proyectosRoutes from './routes/proyectosRoutes.js';
@@ -54,4 +54,8 @@ app.use(express.static(path.join(__dirname, './clientdist')));
 
 //TODO: en lugar de usar nodemon, usar la opción node --watch index.js
 
+// Para todas las rutas desconocidas, servir el archivo 'index.html'
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, './clientdist', 'index.html'));
+});
 
