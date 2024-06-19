@@ -9,7 +9,7 @@ export const fetchProyectos = (referencia:React.RefObject<HTMLTableSectionElemen
   if(referencia.current)
     referencia.current.innerHTML="";
 
-  fetch('http://localhost/proyecto')
+  fetch('/proyecto')
   .then(response => response.json() )
   .then(json => {
     if(json.length==0){
@@ -83,7 +83,7 @@ const eliminarProyecto=(id:number, referencia:React.RefObject<HTMLTableSectionEl
 
   const eliminarSpinner = createSpinner();
 
-  fetch("http://localhost/proyecto/"+id, {
+  fetch("/proyecto/"+id, {
     method: "DELETE",
     headers: {
       "Content-Type": "application/json",

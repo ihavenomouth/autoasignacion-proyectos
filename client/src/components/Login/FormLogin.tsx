@@ -36,7 +36,7 @@ const FormLogin = () => {
     const jsonData = formDataToJson(data);
     const eliminarSpinner = createSpinner();
 
-    fetch("http://localhost/api/login", {
+    fetch("/api/login", {
       body: jsonData,
       method: "POST",
       headers: {

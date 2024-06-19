@@ -39,7 +39,7 @@ const useProyectoStore = create<State>(
       const idSpinner = useToastStore.getState().addSpinner();
 
       try{
-        const response = await fetch('http://localhost/proyecto');
+        const response = await fetch('/proyecto');
         if (!response.ok) throw new Error("Se produjo un error al realizar la operación");
         const arrProyectos:Array<TypeProyecto> = await response.json();
         set({ proyectos: arrProyectos });
@@ -56,7 +56,7 @@ const useProyectoStore = create<State>(
     deleteProyecto: async (id:number) => {
       const idSpinner = useToastStore.getState().addSpinner();
       try{
-        const response = await fetch("http://localhost/proyecto/"+id, {
+        const response = await fetch("/proyecto/"+id, {
           method: "DELETE",
           headers: {
             "Content-Type": "application/json",
@@ -92,7 +92,7 @@ const useProyectoStore = create<State>(
       // console.log({ nombre, descripcion });
 
       try{
-        const response = await fetch("http://localhost/proyecto", {
+        const response = await fetch("/proyecto", {
           body: JSON.stringify({nombre:nombre, descripcion:descripcion}),
           method: "POST",
           headers: {
@@ -130,7 +130,7 @@ const useProyectoStore = create<State>(
     editProyecto: async (id:number, nombre:string, descripcion:string) => {
       const idSpinner = useToastStore.getState().addSpinner();
       try{
-        const response = await fetch("http://localhost/proyecto/"+id, {
+        const response = await fetch("/proyecto/"+id, {
           method: "PUT",
           body: JSON.stringify({nombre:nombre, descripcion:descripcion}),
           headers: {
@@ -165,7 +165,7 @@ const useProyectoStore = create<State>(
     asignarProyecto: async (idAlumno:number, idProyecto:number)=> {
       const idSpinner = useToastStore.getState().addSpinner();
       try{
-        const response = await fetch("http://localhost/alumno/"+idAlumno+"/asignar/"+idProyecto, {
+        const response = await fetch("/alumno/"+idAlumno+"/asignar/"+idProyecto, {
           method: "PUT",
           headers: {
             "Content-Type": "application/json",
@@ -212,7 +212,7 @@ const useProyectoStore = create<State>(
     liberarProyecto: async (idAlumno:number)=> {
       const idSpinner = useToastStore.getState().addSpinner();
       try{
-        const response = await fetch("http://localhost/alumno/"+idAlumno+"/liberar", {
+        const response = await fetch("/alumno/"+idAlumno+"/liberar", {
           method: "PUT",
           headers: {
             "Content-Type": "application/json",

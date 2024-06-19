@@ -12,7 +12,7 @@ export const fetchProyectos = (referencia:React.RefObject<HTMLTableSectionElemen
   if(referencia.current)
     referencia.current.innerHTML="";
 
-  fetch('http://localhost/proyecto')
+  fetch('/proyecto')
   .then(response => response.json() )
   .then(json => {
     if(json.length==0){
@@ -93,7 +93,7 @@ const asignarProyecto=(idproyecto:number, referencia:React.RefObject<HTMLTableSe
   const eliminarSpinner = createSpinner();
   const idalumno = window.localStorage.getItem('idalumno') ?? "";
 
-  fetch("http://localhost/alumno/"+idalumno+"/asignar/"+idproyecto, {
+  fetch("/alumno/"+idalumno+"/asignar/"+idproyecto, {
     method: "PUT",
     headers: {
       "Content-Type": "application/json",

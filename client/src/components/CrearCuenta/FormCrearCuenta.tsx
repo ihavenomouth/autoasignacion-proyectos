@@ -44,7 +44,7 @@ const FormCrearCuenta = () => {
     const jsonData = formDataToJson(data);
     const eliminarSpinner = createSpinner();
 
-    fetch("http://localhost/alumno", {
+    fetch("/alumno", {
       body: jsonData,
       method: "POST",
       headers: {
@@ -64,7 +64,6 @@ const FormCrearCuenta = () => {
           setTimeout(() => {
             eliminarSpinner();
             //TODO: hacer que el servidor devuelva el token de autenticación y redirigir a /main
-            // window.location.href = "http://localhost:8080/";
             navigate("/");
           }, 2000);
         } else {
