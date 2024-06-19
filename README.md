@@ -70,7 +70,7 @@ docker buildx build --no-cache -t ihavenomouth/autoasignacion-proyectos:1.0
 
 La subiremos a dockerhub:
 ```
-docker pull ihavenomouth/autoasignacion-proyectos:1.0
+docker push ihavenomouth/autoasignacion-proyectos:1.0
 ```
 
 Arrancamos el contenedor para poder ejecutar la aplicación.
