@@ -12,6 +12,7 @@ const Menu = () => {
     </div>
     <div id="navbar-with-collapse" className="hidden transition-all duration-[0.1ms] overflow-hidden basis-full grow sm:block">
       <div className="flex flex-col gap-5 mt-5 sm:flex-row sm:items-center sm:mt-0 sm:ps-5">
+        {/* TODO  El enlace principal debería ser /mainAdmin o /main*/}
         <Link to={'/'} className="font-medium hover:text-orange-500">Principal</Link>
         <Link to={'/about'} className="font-medium hover:text-orange-500">Acerca de...</Link>
         <Link onClick={()=>{
