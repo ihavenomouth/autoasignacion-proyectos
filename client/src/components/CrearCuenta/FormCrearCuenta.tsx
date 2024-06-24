@@ -64,7 +64,20 @@ const FormCrearCuenta = () => {
           setTimeout(() => {
             eliminarSpinner();
             //TODO: hacer que el servidor devuelva el token de autenticación y redirigir a /main
-            navigate("/");
+            if (data) {
+              window.localStorage.setItem('nombre', data.nombre);
+              window.localStorage.setItem('email', data.email);
+              window.localStorage.setItem('token', data.token);
+              window.localStorage.setItem('idalumno', data.id);
+              window.localStorage.setItem('idproyecto', data.idproyecto);
+              if(data.email=="j@j.es")
+                navigate("/mainAdmin");
+              else
+                navigate("/main");
+            }
+            else{
+              navigate("/");
+            }
           }, 2000);
         } else {
           createToast("Se produjo un error al intentar realizar la operación", ToastStyle.ERROR, 3000);

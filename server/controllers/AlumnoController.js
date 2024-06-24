@@ -62,10 +62,28 @@ class AlumnoController{
     const saltRounds = 10
     const claveHash = await bcrypt.hash(clave, saltRounds)
 
+    // console.log(claveHash);
     
     try {
+      // Creamos el alumno
       const result = await alumnoModel.createAlumno(nombre, email, claveHash);
-      res.status(201).json({ id: result.lastID });
+      
+      //Generamos el token
+      const alumnoForToken = {
+        email: email,
+        id: result.lastID,
+      }
+  
+      const token = jwt.sign(alumnoForToken, process.env.SECRET);
+
+      res.status(201).json({ 
+        nombre: nombre,
+        email: email,
+        token: token,
+        id: result.lastID,
+        idproyecto:null,
+      });
+
     } catch (err) {
       res.status(500).json({ error: err.message });
     }

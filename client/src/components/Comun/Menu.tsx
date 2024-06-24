@@ -1,6 +1,15 @@
 import {Link} from 'react-router-dom';
 
 const Menu = () => {
+
+  //TODO: en vez del email usar una propiedad "rol=admin"
+  let ruta;
+  const email = localStorage.getItem('email');
+  if(email!="j@j.es")
+    ruta="/main";
+  else
+    ruta="/mainadmin";
+
   return(<>
 
 <nav className="w-full mx-auto px-4 sm:flex sm:items-center sm:justify-between bg-slate-100 dark:bg-slate-700 py-2 border-b-2 border-t-2 border-orange-500" aria-label="Global">
@@ -13,7 +22,7 @@ const Menu = () => {
     <div id="navbar-with-collapse" className="hidden transition-all duration-[0.1ms] overflow-hidden basis-full grow sm:block">
       <div className="flex flex-col gap-5 mt-5 sm:flex-row sm:items-center sm:mt-0 sm:ps-5">
         {/* TODO  El enlace principal debería ser /mainAdmin o /main*/}
-        <Link to={'/'} className="font-medium hover:text-orange-500">Principal</Link>
+        <Link to={ ruta } className="font-medium hover:text-orange-500">Principal</Link>
         <Link to={'/about'} className="font-medium hover:text-orange-500">Acerca de...</Link>
         <Link onClick={()=>{
           localStorage.removeItem('token');

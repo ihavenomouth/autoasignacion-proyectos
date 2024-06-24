@@ -227,7 +227,7 @@ const useProyectoStore = create<State>(
           useToastStore.getState().addToast("Proyecto liberado correctamente", ToastStyle.SUCCESS, 1000);
           setTimeout(() => { useToastStore.getState().removeSpinner(idSpinner); }, 500);        
           window.localStorage.setItem('idproyecto', "");
-          //TODO:Forzamos un refrescado de la página
+          //Forzamos un refrescado de la página
           get().fetchProyectos();
 
         } else {
